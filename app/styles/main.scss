@@ -1,0 +1,72 @@
+@import './colors.scss';
+
+header {
+	width: 100%;
+	position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+	top: 0;
+	left: 0;
+	backgrounf: $base-background;
+	z-index: 9;
+	height: 45px;
+	overflow: hidden;
+	text-align: right;
+
+	ul, li {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0;
+		padding: 0 15px;
+		list-style: none;
+
+		a {
+			color: $main-font-color;
+			border: none;
+			text-decoration: none;
+
+			&:before {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+#fold-above {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  flex-direction: row;
+  flex-flow: initial;
+  align-items: center;
+  padding: 0 30px;
+
+  h1 {
+  	margin: -50px 0 0 0;
+
+  	.blink-bar {
+  		width: 8px;
+  		height: 3rem;
+  		background: #000;
+  		position: relative;
+  		display: inline-block;
+  		opacity: 1;
+  		animation: blink-animation 1s steps(2, start) infinite;
+  		-webkit-animation: blink-animation 1s steps(2, start) infinite;
+  	}
+	}
+}
+
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
