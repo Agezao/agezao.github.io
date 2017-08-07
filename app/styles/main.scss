@@ -70,3 +70,62 @@ header {
     visibility: hidden;
   }
 }
+
+// Intro-card
+#intro-card {
+  vertical-align: top;
+  width: 100%;
+  min-height: 250px;
+
+  // profile-pic
+  .profile-image {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+
+    img {
+      max-width: 200px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+    }
+
+    h4 {
+     margin: 0; 
+    }
+  }
+
+  .spacer {
+    width: 85%;
+    max-width: 150px;
+    display: inline-block;
+    height: 6px;
+    background: #333;
+    margin: 80px 0 0 calc(25% + 15px);
+  }
+
+  // contents
+  .content {
+    width: 74.5%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 15px;
+
+    &.padded {
+      margin-left: 25%;
+    }
+
+    p {
+      max-width: 560px;
+      font-size: 1.1rem;
+    }
+
+    &.about {
+      img {
+        max-width: 150px;
+      }
+    }
+  }
+}
+
+
