@@ -14,8 +14,18 @@
   box-sizing: border-box;
 }
 
+html {
+	background: $base-background !important;
+  -webkit-print-color-adjust: exact;
+	height: 100%;
+	width: 100%;
+}
+
 body {
-	background: $base-background;
+	background: $base-background !important;
+  -webkit-print-color-adjust: exact; 
+	height: 100%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 
@@ -24,4 +34,9 @@ body {
 		min-height: 100vh;
 		padding: 0 15px;
 	}
+}
+
+@media print {
+  @page { margin: 0; background: $base-background !important; }
+  body { margin: 0; }
 }

@@ -76,6 +76,8 @@ header {
   vertical-align: top;
   width: 100%;
   min-height: 250px;
+  background: $base-background !important;
+  -webkit-print-color-adjust: exact;
 
   // profile-pic
   .profile-image {
@@ -117,13 +119,52 @@ header {
 
     p {
       max-width: 560px;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     &.about {
       img {
         max-width: 150px;
       }
+    }
+
+    .work-item {
+      padding: 0 15px 25px 15px;
+      border-left: 3px solid #000;
+
+      .floating-ball {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        background: #000;
+        margin-top: 13px;
+        left: 9px;
+      }
+
+      h3, h4, h5 {
+        margin: 0;
+      }
+
+      p {
+        margin: 5px 0; 
+      }
+    }
+  }
+
+  @media (max-width: 750px) {
+    .profile-image,
+    .content {
+      width: 100%;
+
+      &.padded {
+        margin-left: 0;
+      }
+    }
+
+    .spacer {
+      margin: 80px 0 0 15px;
     }
   }
 }
