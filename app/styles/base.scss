@@ -36,6 +36,10 @@ body {
 	}
 }
 
+#app {
+  overflow-x: hidden;
+}
+
 @media print {
   @page { margin: 0; background: $base-background !important; }
   body { margin: 0; }
