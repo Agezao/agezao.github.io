@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "aos": "^2.2.0",
-    "ionicons": "^2.0.1"
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

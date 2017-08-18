@@ -13,7 +13,7 @@ var wait = require('gulp-wait');
 // Style bundling
 var stylesToBundle = [
   './node_modules/aos/dist/aos.css',
-  './node_modules/ionicons/css/ionicons.min.css',];
+  './node_modules/font-awesome/css/font-awesome.min.css',];
 
 gulp.task('bundle-sass', function () {
   var sassStream = gulp.src('./app/styles/index.scss')
@@ -46,7 +46,7 @@ gulp.task('copy-statics', function () {
   gulp.src(['./app/index.html'])
     .pipe(gulp.dest('./'));
 
-  gulp.src(['./node_modules/ionicons/fonts/**.*'])
+  gulp.src(['./node_modules/font-awesome/fonts/**.*'])
     .pipe(gulp.dest('./build/fonts/'));
 
   return gulp.src(['./app/assets/*.*'])
