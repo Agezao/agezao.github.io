@@ -1,0 +1,49 @@
+.app-display {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 25px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  > .holder {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  &.spooky {
+    background: #e9ebec;
+  }
+
+  &.colorbucket {
+    background: #f8f8fb;
+  }
+
+  &.react {
+    background: #e9ebec;
+  }
+
+  &.confetti {
+    background: #f8f8fb;
+  }
+
+  &.wikis {
+    background: #e9ebec;
+  }
+
+  &.disparei {
+    background: #f8f8fb;
+  }
+
+  &.github {
+    text-align: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .app-display {
+    
+  }
+}
