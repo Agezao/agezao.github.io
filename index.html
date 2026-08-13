@@ -156,7 +156,7 @@
     .card h3 { font-size: 19px; margin: 10px 0 2px; }
     .card .card-link { font-size: 14px; }
     .card p { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
-    .card .btn {
+    .btn {
       display: inline-block; margin-top: 14px;
       font-size: 14px; font-weight: 600;
       color: var(--accent); background: var(--accent-soft);
@@ -164,7 +164,31 @@
       cursor: pointer; font-family: inherit;
       transition: transform .15s ease;
     }
-    .card .btn:active { transform: scale(.94); }
+    .btn:hover { text-decoration: none; transform: translateY(-2px); }
+    .btn:active { transform: scale(.94); }
+
+    /* ---------- agents ---------- */
+    .agents-card {
+      position: relative; overflow: hidden;
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 22px; padding: 30px 32px;
+      box-shadow: var(--shadow);
+    }
+    .agents-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--heart), #f7b32b, #2dd4bf);
+    }
+    .agents-card .lede { font-size: 17px; }
+    .agents-card ul { list-style: none; margin-top: 14px; }
+    .agents-card li { position: relative; padding-left: 22px; margin-top: 8px; color: var(--muted); font-size: 15.5px; }
+    .agents-card li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); }
+    .agents-card strong { color: var(--ink); font-weight: 600; }
+    .agents-card code {
+      font: 500 .88em/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      color: var(--ink); background: var(--chip);
+      border: 1px solid var(--line); border-radius: 6px; padding: 3px 7px;
+    }
+    .agents-card .fine { margin-top: 14px; font-size: 13.5px; color: var(--muted); }
 
     /* ---------- skills ---------- */
     .chips { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -247,6 +271,22 @@
         <p>Started as a techie at 12 and working with IT at 15 — still forever in <span class="heart">♥</span> with tech. I like owning products end-to-end: from idea, to production, to revenue.</p>
         <p class="hint">psst — try clicking the picture 🎉</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Agents -->
+  <section class="wrap">
+    <h2 class="section-title" data-reveal>🤖 the gab-agents.</h2>
+    <div class="agents-card" data-reveal>
+      <p class="lede">Back when we still wrote our own code 😅 I coded and reviewed a <em>lot</em> of PRs. I distilled all of that into a suite of <strong>Claude Code agents</strong> that code, review, and ship like me — and they live right in this site's repo, free to copy:</p>
+      <ul>
+        <li><code>code-like-gabriel</code> — the coding agent, crafted by feeding it <strong>150 PRs I coded myself</strong>: my file layout, guard clauses, JSDoc habits, test shape</li>
+        <li><code>review-like-gab</code> — the review agent, crafted by feeding it <strong>150 PRs I reviewed myself</strong>: my voice, my taxonomy, my anti-nitpick rules</li>
+        <li><code>pr-like-gab</code> — writes PR descriptions in my five-section style</li>
+        <li>orchestrators that chain them: <code>gab-flow</code> (implement + self-review locally), <code>synthetic-gab</code> (brief → draft PR), <code>deep-gab-review</code> (5-lens deep review)</li>
+      </ul>
+      <a class="btn" href="https://github.com/Agezao/agezao.github.io/tree/master/.claude/agents" target="_blank" rel="noopener">grab them for your own setup →</a>
+      <p class="fine">drop the files into your repo's <code>.claude/agents/</code> folder and Claude Code picks them up. Swap my name for yours — or don't, and review PRs as me 😉</p>
     </div>
   </section>
 
@@ -369,6 +409,7 @@
       "building AI agents that ship.",
       "TypeScript · Node.js · OpenAI · AWS.",
       "from idea → production → revenue.",
+      "cloned myself into a suite of agents.",
       "forever in ♥ with tech."
     ];
     var typedEl = document.getElementById("typed");
