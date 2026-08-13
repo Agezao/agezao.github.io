@@ -1,169 +1,455 @@
-<html>
-  <head>
+<!doctype html>
+<html lang="en">
+<head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1,minimum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Meet Gabriel • Gabriel Costa personal info/portfolio.</title>
-  <meta content='Meet Gabriel • Gabriel Costa personal info/portfolio.' name='title' />
-  <meta content='Meet Gabriel • Gabriel Costa personal info/portfolio.' name='og:title' />
-  <meta name="description" content="Gabriel Costa personal info/portfolio.">
+  <title>Meet Gabriel • Senior Software Engineer — AI Agents & Product</title>
+  <meta name="title" content="Meet Gabriel • Senior Software Engineer — AI Agents & Product">
+  <meta property="og:title" content="Meet Gabriel • Senior Software Engineer — AI Agents & Product">
+  <meta name="description" content="Gabriel Costa — senior full-stack engineer (10+ years) shipping production LLM agents at scale. TypeScript · Node.js · OpenAI · AWS.">
+  <meta property="og:description" content="Gabriel Costa — senior full-stack engineer (10+ years) shipping production LLM agents at scale.">
+  <meta property="og:image" content="./assets/profile.jpg">
+  <meta name="theme-color" content="#fdfcfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#10131c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#FFFFFF">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600" rel="stylesheet">
-  <link rel="stylesheet" href="./build/bundle.css" />
-  </head>
-  <body>
-  <div id="app">
-    <!-- Header -->
-    <header data-aos="fade-down" data-aos-delay="700" data-aos-duration="500">
-      <ul>
-        <li><a class="fa fa-github" target="_blank" href="https://github.com/Agezao"></a></li>
-        <li><a class="fa fa-medium" target="_blank" href="https://medium.com/@agegabriel/"></a></li>
-        <li><a class="fa fa-linkedin-square" target="_blank" href="https://www.linkedin.com/in/gabrielrcosta/"></a></li>
-        <li><a class="fa fa-stack-overflow" target="_blank" href="https://stackoverflow.com/users/4100067/gabriel-age"></a></li>
-        <li><a class="fa fa-envelope" href="#contact"></a></li>
-      </ul>
-    </header>
+  <style>
+    :root {
+      --bg: #fdfcfa;
+      --card: #ffffff;
+      --ink: #1c2333;
+      --muted: #5a6272;
+      --line: #e8e6e1;
+      --accent: #5b5bd6;
+      --accent-soft: #eeeefc;
+      --heart: #e93d82;
+      --chip: #f4f3f0;
+      --shadow: 0 10px 30px rgba(28, 35, 51, .07);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10131c;
+        --card: #181c28;
+        --ink: #e9ebf2;
+        --muted: #9aa1b5;
+        --line: #262b3a;
+        --accent: #8f8fe8;
+        --accent-soft: #23244a;
+        --chip: #1f2432;
+        --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      }
+    }
 
-    <!-- Above the Fold -->
-    <section id="fold-above">
-      <h1 data-aos="fade-right" data-aos-duration="800">Meet, Gabriel Rodrigues, <br/>
-          Fullstack Developer & <br/>
-          Forever in ♥ with tech. <div class="blink-bar"></div>
-      </h1>
-    </section>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: "Montserrat", -apple-system, sans-serif; letter-spacing: -0.02em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .heart { color: var(--heart); display: inline-block; }
 
-    <!-- Intro-card -->
-    <div id="intro-card">
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 44px 0; }
 
-      <!-- Picture -->
-      <div class="content profile-image" data-aos="fade-down" data-aos-delay="100" data-aos-duration="700">
-        <img src="./build/assets/gabriel-picture.jpeg" />
-      </div>
+    /* ---------- header ---------- */
+    header {
+      display: flex; justify-content: flex-end; gap: 6px;
+      max-width: 860px; margin: 0 auto; padding: 20px 24px 0;
+    }
+    header a {
+      display: grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 12px;
+      color: var(--muted);
+      transition: transform .2s ease, color .2s ease, background .2s ease;
+    }
+    header a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+    header svg { width: 21px; height: 21px; fill: currentColor; }
 
-      <!-- About -->
-      <div class="content about" data-aos="fade-down" data-aos-delay="300" data-aos-duration="700">
+    /* ---------- hero ---------- */
+    #hero { padding: 72px 0 40px; }
+    #hero .kicker {
+      display: inline-block; font-size: 14px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 5px 14px; border-radius: 999px; margin-bottom: 22px;
+    }
+    #hero h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; line-height: 1.12; }
+    #hero .typed-line {
+      margin-top: 16px; font-family: "Montserrat", sans-serif;
+      font-size: clamp(19px, 3vw, 25px); font-weight: 600; color: var(--muted);
+      min-height: 1.5em;
+    }
+    .blink-bar {
+      display: inline-block; width: 3px; height: 1.05em;
+      background: var(--accent); vertical-align: text-bottom;
+      margin-left: 3px; border-radius: 2px;
+      animation: blink 1.06s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    #hero .meta { margin-top: 18px; color: var(--muted); font-size: 15px; }
+
+    /* ---------- intro card ---------- */
+    .intro-card {
+      display: flex; gap: 32px; align-items: center;
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 22px; padding: 32px; box-shadow: var(--shadow);
+    }
+    .intro-card img {
+      width: 168px; height: 168px; object-fit: cover;
+      border-radius: 50%; flex-shrink: 0;
+      border: 4px solid var(--accent-soft);
+      cursor: pointer;
+      transition: transform .25s ease;
+    }
+    .intro-card img:hover { transform: rotate(-3deg) scale(1.04); }
+    .intro-card h2 { font-size: 22px; margin-bottom: 10px; }
+    .intro-card p + p { margin-top: 10px; }
+    .intro-card .hint { font-size: 13px; color: var(--muted); margin-top: 12px; }
+    @media (max-width: 620px) {
+      .intro-card { flex-direction: column; text-align: center; }
+    }
+
+    /* ---------- section titles ---------- */
+    .section-title { font-size: 26px; margin-bottom: 26px; }
+
+    /* ---------- experience timeline ---------- */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--line); border-radius: 2px;
+    }
+    .job { position: relative; padding-bottom: 30px; }
+    .job:last-child { padding-bottom: 0; }
+    .job::before {
+      content: ""; position: absolute; left: -28px; top: 7px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+    .job h3 { font-size: 18px; }
+    .job h3 small { font-weight: 500; color: var(--muted); font-family: -apple-system, sans-serif; }
+    .job .period { font-size: 13.5px; color: var(--muted); margin: 2px 0 8px; }
+    .job ul { list-style: none; }
+    .job li { position: relative; padding-left: 20px; margin-top: 6px; color: var(--muted); font-size: 15.5px; }
+    .job li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); }
+    .job li strong, .job p strong { color: var(--ink); font-weight: 600; }
+
+    /* ---------- projects ---------- */
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 18px; padding: 26px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .card .emoji { font-size: 30px; }
+    .card h3 { font-size: 19px; margin: 10px 0 2px; }
+    .card .card-link { font-size: 14px; }
+    .card p { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
+    .card .btn {
+      display: inline-block; margin-top: 14px;
+      font-size: 14px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      border: none; border-radius: 999px; padding: 8px 18px;
+      cursor: pointer; font-family: inherit;
+      transition: transform .15s ease;
+    }
+    .card .btn:active { transform: scale(.94); }
+
+    /* ---------- skills ---------- */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      background: var(--chip); border: 1px solid var(--line);
+      border-radius: 999px; padding: 7px 16px;
+      font-size: 14.5px; font-weight: 500;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .chip:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+    /* ---------- education / contact ---------- */
+    .edu p { color: var(--muted); }
+    .edu strong { color: var(--ink); }
+    #contact { text-align: center; padding-bottom: 30px; }
+    #contact .email {
+      font-family: "Montserrat", sans-serif; font-weight: 700;
+      font-size: clamp(20px, 4vw, 28px);
+    }
+    #contact p { color: var(--muted); margin-top: 8px; font-size: 15px; }
+
+    footer { text-align: center; padding: 26px 0 34px; color: var(--muted); font-size: 13.5px; }
+    footer .heart { cursor: pointer; transition: transform .2s ease; }
+    footer .heart:hover { transform: scale(1.3); }
+
+    /* ---------- reveal animation ---------- */
+    [data-reveal] {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    [data-reveal].in { opacity: 1; transform: none; }
+
+    #confetti-canvas {
+      position: fixed; inset: 0; pointer-events: none; z-index: 99;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
+      .blink-bar { animation: none; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Header -->
+  <header data-reveal>
+    <a href="https://github.com/Agezao" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/gabrielrcosta/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 16 16"><path d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728zM4.67 5.715a1.037 1.037 0 0 1-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78zM13.11 2H2.885A.88.88 0 0 0 2 2.866v10.268a.88.88 0 0 0 .885.866h10.226a.882.882 0 0 0 .889-.866V2.865a.88.88 0 0 0-.889-.864z"/></svg>
+    </a>
+    <a href="https://bindi.coach" target="_blank" rel="noopener" aria-label="Bindi" title="Bindi — AI Career Mentor">
+      <svg viewBox="0 0 16 16"><path d="M8 1.5c.3 0 .55.2.63.48l.9 3.15 3.15.9a.65.65 0 0 1 0 1.25l-3.15.9-.9 3.15a.65.65 0 0 1-1.26 0l-.9-3.15-3.15-.9a.65.65 0 0 1 0-1.25l3.15-.9.9-3.15A.65.65 0 0 1 8 1.5zm5 8.5c.2 0 .37.13.42.32l.4 1.36 1.36.4a.44.44 0 0 1 0 .84l-1.36.4-.4 1.36a.44.44 0 0 1-.84 0l-.4-1.36-1.36-.4a.44.44 0 0 1 0-.84l1.36-.4.4-1.36A.44.44 0 0 1 13 10z"/></svg>
+    </a>
+    <a href="mailto:0800.grc@gmail.com" aria-label="Email" title="Email me">
+      <svg viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/></svg>
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="wrap">
+    <span class="kicker" data-reveal>👋 meet Gabriel Costa</span>
+    <h1 data-reveal style="transition-delay:.1s">Senior Software Engineer<br>AI Agents &amp; Product</h1>
+    <div class="typed-line" data-reveal style="transition-delay:.2s"><span id="typed"></span><span class="blink-bar"></span></div>
+    <p class="meta" data-reveal style="transition-delay:.3s">📍 São Paulo, Brazil · working remote with 4+ hrs overlap with US ET</p>
+  </section>
+
+  <!-- Intro card -->
+  <section class="wrap">
+    <div class="intro-card" data-reveal>
+      <img src="./assets/profile.jpg" alt="Gabriel Costa" id="profile-pic" title="click me 😉">
+      <div>
         <h2>📖 about.</h2>
-        <p>22 yo developer who loves to code and solve problems through technology. Build great products and help other people lives with them is what keeps me moving.</p>
-        <p>Started as a techie at 12 and working with IT at 15, I've developed a strong desire in being part of every step of development, from idea to production. This made myself a <i>trully</i> fullstack developer.</p>
-        <p>
-          <img src="./build/assets/ms1.png"/>
-          <img src="./build/assets/ms2.png"/>
-        </p>
-        <p>Keep scrolling to know what I've been working 😄</p>
+        <p>Senior full-stack engineer (10+ years) shipping <strong>production LLM agents at scale</strong>. These days I build AI copilots at Mixmax that sit in hundreds of sales-meeting hours every single day.</p>
+        <p>Started as a techie at 12 and working with IT at 15 — still forever in <span class="heart">♥</span> with tech. I like owning products end-to-end: from idea, to production, to revenue.</p>
+        <p class="hint">psst — try clicking the picture 🎉</p>
       </div>
     </div>
+  </section>
 
-    <br />
-    <br />
-    <br />
-
-    <div class="content padded" data-aos="fade-down" data-aos-delay="300" data-aos-duration="700">
-      <h2>💻 personal projects/labs</h2>
-    </div>
-
-    <!-- SpookyCss -->
-    <div class="app-display spooky">
-      <div class="holder">
-        <div clas="logo"></div>
-        <h2>SpookyCss (CSS framework)</h2>
-        <a href="https://agezao.github.io/SpookyCss/" target="_blank">agezao.github.io/SpookyCss/</a>
-        <p>The Spooky "framework" contains just the basic for your project. With Spooky you can suit the basics needs of modern web for a simple project or use as a starting point to bootstrap your on UI framework.</a></p>
-        <h4>Build With</h4>
-        <p>Build with SASS, build process and scripts with Gulp.</p>
+  <!-- Experience -->
+  <section class="wrap">
+    <h2 class="section-title" data-reveal>👔 experience.</h2>
+    <div class="timeline">
+      <div class="job" data-reveal>
+        <h3>Mixmax <small>— Senior Software Engineer</small></h3>
+        <p class="period">Remote · Jul 2021 – present</p>
+        <ul>
+          <li>Built AI agents (TypeScript/Node + OpenAI) that copilot the full sales-meeting lifecycle — prep, in-meeting assistance, and automated follow-up — supporting <strong>hundreds of meeting hours daily</strong></li>
+          <li>Led a <strong>team of 7 engineers</strong> from concept to market launch, bridging engineering, product, and design</li>
+          <li>Drove re-architecture of a legacy monolith into event-driven AWS services (ECS + serverless, fully IaC), cutting <strong>P1 incidents ~85%</strong></li>
+        </ul>
+      </div>
+      <div class="job" data-reveal>
+        <h3>Catho Lab <small>— Founding Engineer, internal venture builder</small></h3>
+        <p class="period">São Paulo · Jan 2019 – Jul 2021</p>
+        <ul>
+          <li>Built a tech-enabled recruiting agency from zero — owned full-stack delivery end-to-end</li>
+          <li>Took the venture from <strong>idea to B2B revenue within its first months</strong>, landing paying clients across multiple verticals</li>
+        </ul>
+      </div>
+      <div class="job" data-reveal>
+        <h3>OneAsk <small>— Co-Founder (part-time side venture)</small></h3>
+        <p class="period">Jul 2019 – Jul 2021</p>
+        <ul>
+          <li>Co-built and operated a live-Q&amp;A SaaS for events — <strong>hundreds of users across hundreds of live events globally</strong>, with 24/7 production ownership</li>
+        </ul>
+      </div>
+      <div class="job" data-reveal>
+        <h3>FCamara Consulting <small>— Tech Lead / Software Architect</small></h3>
+        <p class="period">São Paulo · Jan 2017 – Jan 2019</p>
+        <ul>
+          <li>Led a 5-person cross-functional team delivering a trade-marketing product; software architect across healthcare, shipping, and retail</li>
+        </ul>
+      </div>
+      <div class="job" data-reveal>
+        <h3>Earlier roles <small>— 2011 – 2017</small></h3>
+        <ul>
+          <li>Full-stack engineering across loyalty (Dotz), fintech / stock market, and e-commerce — C#/.NET, Node.js, JavaScript, SQL/MongoDB</li>
+        </ul>
       </div>
     </div>
+  </section>
 
-    <!-- Colorbucket -->
-    <div class="app-display colorbucket">
-      <div class="holder">
-        <div clas="logo"></div>
-        <h2>Colorbucket</h2>
-        <a href="https://colorbucket.co/about/" target="_blank">colorbucket.co</a>
-        <p>Save the colors that you ♥ so you'll never lose that nice color again. We are just like <a href="https://getpocket.com/" target="_blank">pocket</a>, but for colors. This is an Open Source project, so feel free to check up <a href="https://github.com/ColorBucket" target="_blank">project's github</a> to know more!</p>
-        <h4>Build With</h4>
-        <p>Build as a React PWA, Chrome Extention and a Node + Express + MongoDb API. Continous Delivery with Jenkins. If you want to know more about the code, check <a href="https://github.com/ColorBucket" target="_blank">project's github</a></p>
+  <!-- Projects -->
+  <section class="wrap">
+    <h2 class="section-title" data-reveal>💻 projects &amp; open source.</h2>
+    <div class="cards">
+      <div class="card" data-reveal>
+        <span class="emoji">🧭</span>
+        <h3>Bindi — AI Career Mentor</h3>
+        <a class="card-link" href="https://bindi.coach" target="_blank" rel="noopener">bindi.coach</a>
+        <p>Solo-built and shipped a live multi-step LLM agent (OpenAI + LangChain) that drafts personalized career plans and handles follow-up dialogue. Built on nights &amp; weekends — live in production with early users.</p>
+      </div>
+      <div class="card" data-reveal style="transition-delay:.12s">
+        <span class="emoji">🎉</span>
+        <h3>confetti-js</h3>
+        <a class="card-link" href="https://github.com/Agezao/confetti-js" target="_blank" rel="noopener">github.com/Agezao/confetti-js</a>
+        <p>JavaScript plugin to generate beautiful confetti on your website. <strong>600+ stars</strong>, 100+ forks, used by thousands.</p>
+        <button class="btn" id="confetti-btn">make it rain 🎉</button>
       </div>
     </div>
+    <p data-reveal style="margin-top:18px; color:var(--muted); font-size:15px">more experiments at <a href="https://github.com/Agezao" target="_blank" rel="noopener">github.com/Agezao</a></p>
+  </section>
 
-    <!-- React -->
-    <div class="app-display react">
-      <div class="holder">
-        <div clas="logo"></div>
-        <h2>React (Mobile game)</h2>
-        <a href="https://react.moonhorn.co" target="_blank">react.moonhorn.co</a>
-        <p>React is a free-to-play indie mobile game. You can download the game and know more about it <a href="https://react.moonhorn.co">here</a></p>
-        <h4>Build With</h4>
-        <p>Build with pure JS and Apache Cordova. API made with Node.js + Express + MondoDb. Data Mining in R.</p>
-      </div>
+  <!-- Skills -->
+  <section class="wrap">
+    <h2 class="section-title" data-reveal>🖥 skills.</h2>
+    <div class="chips" data-reveal>
+      <span class="chip">TypeScript</span>
+      <span class="chip">Node.js</span>
+      <span class="chip">React</span>
+      <span class="chip">LLM agents (OpenAI · LangChain)</span>
+      <span class="chip">AWS · ECS · Serverless · IaC</span>
+      <span class="chip">Event-driven architecture</span>
+      <span class="chip">MongoDB</span>
+      <span class="chip">SQL</span>
     </div>
+  </section>
 
-    <!-- Confetti.js -->
-    <div class="app-display confetti">
-      <div class="holder">
-        <div clas="logo"></div>
-        <h2>confetti.js</h2>
-        <a href="https://agezao.github.io/confetti-js/" target="_blank">agezao.github.io/confetti-js</a>
-        <p>Javascript plugin to generate beautiful confetti at your web-site or design.</p>
-        <h4>Build With</h4>
-        <p>Pure JS. Check project's github <a href="https://github.com/Agezao/confetti-js" target="_blank">here</a></p>
-      </div>
-    </div>
+  <!-- Education -->
+  <section class="wrap edu">
+    <h2 class="section-title" data-reveal>🎓 education.</h2>
+    <p data-reveal><strong>FGV</strong> — MBA, 2024</p>
+    <p data-reveal><strong>Universidade Santa Cecília</strong> — B.S. Information Systems, 2017</p>
+  </section>
 
-    <!-- 99wikis -->
-    <div class="app-display wikis">
-      <div class="holder">
-        <div clas="logo"></div>
-        <h2>99wikis</h2>
-        <a href="https://99wikis.com" target="_blank">99wikis.com</a>
-        <p>A simple and fast Progressive Web App for software documentation and knowledge base. A platform that helps your team to centralize knowledge, work together and always be on the same page.</p>
-        <h4>Build With</h4>
-        <p>You can check all the stack and tech <a href="https://stackshare.io/99wikis/99wikis" target="_blank">here</a></p>
-      </div>
-    </div>
+  <!-- Contact -->
+  <section class="wrap" id="contact">
+    <h2 class="section-title" data-reveal>📩 get in touch.</h2>
+    <a class="email" href="mailto:0800.grc@gmail.com" data-reveal>0800.grc@gmail.com</a>
+    <p data-reveal>or find me on <a href="https://www.linkedin.com/in/gabrielrcosta/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/Agezao" target="_blank" rel="noopener">GitHub</a></p>
+  </section>
 
-    <!-- Disparei -->
-    <div class="app-display disparei">
-      <div class="holder">
-        <div clas="logo"></div>
-        <h2>Disparei</h2>
-        <a href="https://disparei.co" target="_blank">disparei.co</a>
-        <p>Disparei is a central hub for digital marketing. You can schedule and automate marketing campaigns through many different channels (like email, sms, facebook, instagram...) in the same app.</p>
-        <h4>Build With</h4>
-        <p>You can check all the stack and tech <a href="https://stackshare.io/disparei/disparei" target="_blank">here</a></p>
-      </div>
-    </div>
+  <footer>
+    <small>made with <span class="heart" id="footer-heart" title="🎉">♥</span> by Gabriel — since 2017, refreshed 2026</small>
+  </footer>
 
-    <!-- Github -->
-    <div class="app-display github">
-      <h2>More work at my github</h2>
-      <a href="https://github.com/Agezao" target="_blank">https://github.com/Agezao</a>
-    </div>
+  <script>
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    <div class="content" data-aos="fade-right" data-aos-delay="300" data-aos-duration="700"><div class="spacer"></div></div>
-    <!-- More Info -->
-    <div class="content padded" data-aos="fade-down" data-aos-delay="300" data-aos-duration="700">
-      <h2>🖥 skills. 👔 work experience. 🎓 education ...</h2>
-      <h4> >. To know more about me, check out my LinkedIn <a href="https://www.linkedin.com/in/gabrielrcosta/" target="_blank">here</a></h4>
-      <p>or</p>
-    </div>
+    /* ---------- scroll reveal ---------- */
+    var revealEls = document.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("in"); });
+    }
 
-    <!-- Contact -->
-    <div class="content padded" data-aos="fade-down" data-aos-delay="300" data-aos-duration="700" id="contact">
-      <h2>📩 get in touch.</h2>
-      <h4>0800.grc@gmail.com</h4>
-    </div>
+    /* ---------- typed hero line ---------- */
+    var phrases = [
+      "building AI agents that ship.",
+      "TypeScript · Node.js · OpenAI · AWS.",
+      "from idea → production → revenue.",
+      "forever in ♥ with tech."
+    ];
+    var typedEl = document.getElementById("typed");
+    if (reducedMotion) {
+      typedEl.textContent = phrases[0];
+    } else {
+      var pi = 0, ci = 0, deleting = false;
+      (function tick() {
+        var phrase = phrases[pi];
+        typedEl.textContent = phrase.slice(0, ci);
+        var delay;
+        if (!deleting && ci < phrase.length) { ci++; delay = 52; }
+        else if (!deleting) { deleting = true; delay = 1900; }
+        else if (ci > 0) { ci--; delay = 26; }
+        else { deleting = false; pi = (pi + 1) % phrases.length; delay = 350; }
+        setTimeout(tick, delay);
+      })();
+    }
 
-    <footer>
-      <small>made with ♥ by Gabriel</small>
-    </footer>
+    /* ---------- confetti (a tiny homage to confetti-js) ---------- */
+    var canvas = document.getElementById("confetti-canvas");
+    var ctx = canvas.getContext("2d");
+    var particles = [];
+    var rafId = null;
+    var COLORS = ["#5b5bd6", "#e93d82", "#f7b32b", "#2dd4bf", "#8f8fe8", "#ff8c42"];
 
-  </div>
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-  <script src="./build/bundle.js"></script>
-  </body>
+    function burst(x, y) {
+      if (reducedMotion) return;
+      for (var i = 0; i < 90; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = 4 + Math.random() * 8;
+        particles.push({
+          x: x, y: y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 4,
+          w: 6 + Math.random() * 6,
+          h: 4 + Math.random() * 4,
+          rot: Math.random() * Math.PI,
+          vr: (Math.random() - 0.5) * 0.3,
+          color: COLORS[(Math.random() * COLORS.length) | 0],
+          life: 1
+        });
+      }
+      if (!rafId) loop();
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles = particles.filter(function (p) { return p.life > 0 && p.y < canvas.height + 20; });
+      particles.forEach(function (p) {
+        p.vy += 0.22;          // gravity
+        p.vx *= 0.99;
+        p.x += p.vx; p.y += p.vy;
+        p.rot += p.vr;
+        p.life -= 0.004;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      if (particles.length) { rafId = requestAnimationFrame(loop); }
+      else { rafId = null; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    }
+
+    function burstFrom(el) {
+      var r = el.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top + r.height / 2);
+    }
+    document.getElementById("profile-pic").addEventListener("click", function () { burstFrom(this); });
+    document.getElementById("confetti-btn").addEventListener("click", function () { burstFrom(this); });
+    document.getElementById("footer-heart").addEventListener("click", function () { burstFrom(this); });
+  </script>
+</body>
 </html>
