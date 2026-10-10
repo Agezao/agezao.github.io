@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Beliefs • Gabriel Costa</title>
+  <meta name="title" content="Beliefs • Gabriel Costa">
+  <meta property="og:title" content="Beliefs • Gabriel Costa">
+  <meta name="description" content="Things I believe. Beliefs I hold on to while working.">
+  <meta property="og:description" content="Things I believe. Beliefs I hold on to while working.">
+  <meta property="og:image" content="../assets/profile.jpg">
+  <meta name="theme-color" content="#fdfcfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#10131c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fdfcfa;
+      --card: #ffffff;
+      --ink: #1c2333;
+      --muted: #5a6272;
+      --line: #e8e6e1;
+      --accent: #5b5bd6;
+      --accent-soft: #eeeefc;
+      --heart: #e93d82;
+      --chip: #f4f3f0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10131c;
+        --card: #181c28;
+        --ink: #e9ebf2;
+        --muted: #9aa1b5;
+        --line: #262b3a;
+        --accent: #8f8fe8;
+        --accent-soft: #23244a;
+        --chip: #1f2432;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2 { font-family: "Montserrat", -apple-system, sans-serif; letter-spacing: -0.02em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .heart { color: var(--heart); }
+
+    .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- header ---------- */
+    header { max-width: 680px; margin: 0 auto; padding: 28px 24px 0; }
+    header a { font-size: 15px; font-weight: 600; color: var(--muted); }
+    header a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ---------- hero ---------- */
+    #hero { padding: 64px 0 36px; }
+    #hero h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 800; line-height: 1.12; }
+    #hero p { margin-top: 12px; font-size: 19px; color: var(--muted); }
+
+    /* ---------- beliefs ---------- */
+    .beliefs { list-style: none; counter-reset: belief; padding-bottom: 40px; }
+    .beliefs > li {
+      counter-increment: belief;
+      position: relative;
+      padding: 26px 0 26px 52px;
+      border-top: 1px solid var(--line);
+    }
+    .beliefs > li::before {
+      content: counter(belief, decimal-leading-zero);
+      position: absolute; left: 0; top: 29px;
+      font: 700 14px/1 "Montserrat", sans-serif;
+      color: var(--accent);
+    }
+    .beliefs h2 { font-size: 20px; line-height: 1.35; }
+    .beliefs p { margin-top: 8px; color: var(--muted); font-size: 16px; }
+    .beliefs ul { list-style: none; margin-top: 8px; }
+    .beliefs ul li { position: relative; padding-left: 20px; margin-top: 6px; color: var(--muted); font-size: 16px; }
+    .beliefs ul li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); }
+    .beliefs strong { color: var(--ink); font-weight: 600; }
+
+    footer { text-align: center; padding: 26px 0 34px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
+
+    /* ---------- reveal animation ---------- */
+    [data-reveal] {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    [data-reveal].in { opacity: 1; transform: none; }
+
+    @media (max-width: 480px) {
+      .beliefs > li { padding-left: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="../">← Gabriel Costa</a>
+  </header>
+
+  <section id="hero" class="wrap">
+    <h1 data-reveal>Things I believe.</h1>
+    <p data-reveal style="transition-delay:.1s">Beliefs I hold on to while working.</p>
+  </section>
+
+  <main class="wrap">
+    <ol class="beliefs">
+      <li data-reveal>
+        <h2>Async-first, trust-first.</h2>
+        <ul>
+          <li>It does not mean <em>async-only</em> — but making sure that sync agendas have a good reason for pulling people out of their focus-window.</li>
+          <li><strong>No agenda, no meeting.</strong></li>
+        </ul>
+      </li>
+      <li data-reveal>
+        <h2>Have strong opinions, loosely held.</h2>
+        <p>You can just change your mind if you're wrong.</p>
+      </li>
+      <li data-reveal>
+        <h2>Landings &gt; launches.</h2>
+        <p>Product adoption &gt; shipping code.</p>
+      </li>
+      <li data-reveal>
+        <h2>Always assume good intent.</h2>
+        <p>People are working with their best intention, their best effort, and the best heart.</p>
+      </li>
+      <li data-reveal>
+        <h2>Seek the collective truth, not just one opinion.</h2>
+        <p>Just because one engaged user or an important stakeholder asks for something doesn't mean they're right. Validate before shipping — avoid the <a href="https://xyproblem.info/" target="_blank" rel="noopener">XY problem</a>.</p>
+      </li>
+      <li data-reveal>
+        <h2>Clear writing is clear thinking.</h2>
+      </li>
+      <li data-reveal>
+        <h2>Aim for TACS comms.</h2>
+        <p><strong>T</strong>actical, <strong>A</strong>ctionable, <strong>C</strong>oncrete, and <strong>S</strong>pecific.</p>
+      </li>
+      <li data-reveal>
+        <h2>Get buy-in before shipping.</h2>
+        <p>Get buy-in from the involved stakeholders before materializing any code that will hit the users — i.e. avoid reckless shipping.</p>
+      </li>
+    </ol>
+  </main>
+
+  <footer>
+    <small>made with <span class="heart">♥</span> by <a href="../">Gabriel</a></small>
+  </footer>
+
+  <script>
+    var revealEls = document.querySelectorAll("[data-reveal]");
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("in"); });
+    }
+  </script>
+</body>
+</html>
